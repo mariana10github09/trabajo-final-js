@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector("form");
     const tableBody = document.querySelector("tbody");  
-     let editIndex = 1;
+     let editIndex = -1;
 
    const loadTableData = () => {
         const users = JSON.parse(localStorage.getItem("users")) || [];
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const saveUser = (user) => {
        const users = JSON.parse(localStorage.getItem("users")) || [];
-        if (editIndex === 1) {
+        if (editIndex === -1) {
            users.push(user);
         } else {
             users[editIndex] = user;
